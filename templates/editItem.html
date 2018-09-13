@@ -1,0 +1,30 @@
+<!-- the eddit template for the owners of the template selected -->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage_userin')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+
+  <div class="internalbody">
+
+    <form action="{{ url_for('handle_data2')}}" method="post">
+
+      <label class="eddit1">Eddit </label><label class="eddit1">"{{item_name}}"</label><label class="eddit1"> in </label><label id="category_name" class="eddit1">{{category_name}} :-</label>
+
+    <div class="def_divs">
+      <label class="def_labels">New Item Title</label>
+      <input type="hidden" name="item_name" value="{{item_name}}" >
+      <input type="text" name="Item1"></input>
+    </div>
+
+    <div class="def_divs">
+      <label class="def_labels">Discribtion</label>
+      <input type="text" name="Dis1"></input>
+    </div>
+
+      <input class="submit1" type="submit">
+    </form>
+  </div>
+</div>
+{% endblock %}

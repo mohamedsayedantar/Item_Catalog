@@ -1,0 +1,209 @@
+/*this css file is made for all templates for this web application*/
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+header, nav, footer, section, article, div {
+  box-sizing: border-box;
+}
+
+.header{
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+	background-color: #0C0C0C;
+	height: 50px;
+  border-radius: 25px;
+}
+
+.headerword{
+	margin-left: 30%;
+	color: #ffffff ;
+}
+
+.button1{
+  border-radius: 30px;
+	width : 12%;
+	margin-left: 30%;
+  background-color: #ff5722d9;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  padding-right: .8em;
+  padding-left: .8em;
+  text-decoration-line: none;
+  font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+  color: #ffffff ;
+}
+
+.categoriesDiv{
+  background-color: 	#4D4D4D;
+  border-radius: 30px;
+  margin: .3em;
+  margin-top: .7em;
+  margin-bottom: .7em;
+  box-shadow: 2px 4px;
+}
+
+.categoriesDiv2{
+  margin: .3em;
+  border-radius: 30px;
+  background-color: 	#2F4F4F;
+  box-shadow: 2px 4px;
+}
+
+.categoriesDiv3{
+  margin: 1em;
+  display: inline-block;
+  background-color: 	#2F4F4F;
+  box-shadow: 2px 4px;
+  border-radius: 30px;
+}
+
+.body{
+  border-radius: 30px;
+	background-color: #434142;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+}
+
+.internalbody{
+  box-shadow: 10px 20px;
+  border-radius: 30px;
+	background-color: #ffffff;
+	width: 80%;
+	height: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 5%;
+	margin-bottom: 10%;
+	display: inline-block;
+	align-content: flex-end;
+}
+
+.categories{
+	display: inline-block;
+	text-align: left;
+	width: auto;
+	height: 100%;
+	margin: auto;
+	margin-left: 3%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-right: 5%;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+	border-right: thin solid #A9A9A9;
+}
+
+.categories2{
+  border-radius: 30px;
+	display: inline-block;
+	text-align: left;
+	width: auto;
+	max-width: 39%;
+	height: 100%;
+	margin: auto;
+	margin-left: 3%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	padding-right: 5%;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.items{
+	display: inline-block;
+	text-align: left;
+	width: auto;
+	max-width: 59%;
+	margin-right: 2%;
+	height: 100%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 4%;
+	display: inline-block;
+	height: 100%;
+	vertical-align:top;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.items_text{
+	color: #DCAFC4;
+	display: inline-block;
+	text-decoration-line: none;
+  padding-left: 10%;
+  padding-top: .5em;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.category_items{
+	color: #DCAFC4;
+	text-decoration-line: none;
+	font-size: 120%;
+  padding-left: 1em;
+  padding-right: 1em;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.gray_items{
+  padding-right: 15%;
+	color: #A9A9A9;
+	display: inline-block;
+}
+
+.counted_items{
+	display: block;
+
+}
+
+.headerword{
+	text-decoration-line: none;
+	font-size: 2em;
+}
+
+.additem{
+  text-decoration-line: none;
+  font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+  color: #ff5722d9;
+}
+
+.def_labels{
+  font-size: 120%;
+	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+  margin: 1em;
+}
+
+.def_divs{
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+.add1{
+  margin: .5em;
+}
+
+.submit1{
+  margin: .5em;
+  margin-left: 6em;
+}
+
+.buttons{
+  text-decoration-line: none;
+  color: #DCAFC4;
+  margin: 1em;
+  margin-top: .5em;
+}
+
+.eddit1{
+  margin: .5em;
+  font-size: 2em;
+}
+
+.remove1{
+  margin: .5em;
+}

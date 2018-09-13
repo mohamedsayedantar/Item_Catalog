@@ -1,0 +1,38 @@
+<!--the home page template for thw known users only to add items-->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage_userin')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+  <div class="internalbody">
+    <div class="categories">
+      <h2>Categories</h2>
+      <br>
+      {% for i in categories %}
+          <div class="categoriesDiv">
+            <a class="category_items" href="{{url_for('categoriesfunc_logedin', category_name = i.name)}}">{{i.name}}</a>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="items">
+      <a class="additem" href="{{url_for('addItem')}}">Add Item</a>
+      <h2 class="itemsword">Items</h2>
+      <br>
+      {% for m in categories %}
+      {% for r in items %}
+      {% if r.categories_id == m.id %}
+      <div class="categoriesDiv2">
+      <a class="items_text" href="{{url_for('item_discribtion_logedin', category_name = m.name, item_name = r.name)}}">{{r.name}}<h4 class="gray_items">({{m.name}})</h4></a>
+      <br>
+      <br>
+    </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

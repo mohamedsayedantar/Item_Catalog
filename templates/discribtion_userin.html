@@ -1,0 +1,22 @@
+<!-- the describtion template for for the users own the item selected -->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage_userin')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+  <div class="internalbody">
+    <div class="categories2">
+      <h1>{{item_name}}</h1>
+      <br>
+      <h4>{{description}}</h4>
+      <div class="categoriesDiv3">
+        <a class="buttons" href="{{url_for('EdditItem', category_name = category, item_name = item_name)}}">Edit</a>
+        </div>
+        <div class="categoriesDiv3">
+        <a class="buttons" href="{{url_for('RemoveItem', category_name = category, item_name = item_name)}}">Remove</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

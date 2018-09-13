@@ -1,0 +1,16 @@
+<!-- the describtion template for users don't own the item selected -->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+  <div class="internalbody">
+    <div class="categories2">
+      <h1>{{item_name}}</h1>
+      <br>
+      <h4>{{description}}</h4>
+    </div>
+  </div>
+</div>
+{% endblock %}

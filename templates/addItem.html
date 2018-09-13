@@ -1,0 +1,36 @@
+<!-- the add items template for users known -->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage_userin')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+
+  <div class="internalbody">
+    <h1 class="add1">Add Item :-</h1>
+    <form action="{{ url_for('handle_data1') }}" method="post">
+
+      <div class="def_divs">
+        <label class="def_labels">Category</label>
+        <select name="select">
+          {% for i in categories %}
+                <option>{{i.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+    <div class="def_divs">
+      <label class="def_labels">Item Title</label>
+      <input type="text" name="Item1"></input>
+    </div>
+
+    <div class="def_divs">
+      <label class="def_labels">Discribtion</label>
+      <input type="text" name="Dis1"></input>
+    </div>
+
+      <input class="submit1" type="submit">
+    </form>
+  </div>
+</div>
+{% endblock %}

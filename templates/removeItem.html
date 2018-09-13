@@ -1,0 +1,20 @@
+<!-- the delete template for the owners of the template selected -->
+{% extends "header.html" %}
+{% block content %}
+<div class="header">
+  <a class="headerword" href="{{url_for('homepage_userin')}}">Catalog App<a class="button1" href="{{url_for('gdisconnect')}}">logout</a></a>
+</div>
+<div class="body">
+
+  <div class="internalbody">
+    <h1 class="remove1">Are You Sure :-</h1>
+    <h2 class="remove1">Remove "{{item_name}}" from {{category}}</h2>
+
+    <form action="{{ url_for('handle_data3')}}" method="post">
+      <input name="item_name" type="hidden" value="{{item_name}}">
+    <div class="def_divs">
+      <input class="submit1" type="submit">
+    </div></form>
+  </div>
+</div>
+{% endblock %}
