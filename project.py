@@ -234,25 +234,25 @@ def categoriesfunc_logedin(category_name):
 
 
 @app.route('/catalog/<string:category_name>/<string:item_name>')
-def item_discribtion(category_name, item_name):
+def item_description(category_name, item_name):
     #to show each item discribtion
     description = session.query(Items.description).filter_by(name=item_name
                                                              ).first()
-    return render_template('discribtion.html',
+    return render_template('description.html',
                            description=description[0], item_name=item_name)
 
 
 @app.route('/catalog/<string:category_name>/<string:item_name>/otherUser')
-def item_discribtion2(category_name, item_name):
+def item_description2(category_name, item_name):
     #to show each item discribtion for some one's item to another user
     description = session.query(Items.description).filter_by(name=item_name
                                                              ).first()
-    return render_template('discribtionOtherUser.html',
+    return render_template('descriptionOtherUser.html',
                            description=description[0], item_name=item_name)
 
 
 @app.route('/logedin/catalog/<string:category_name>/<string:item_name>')
-def item_discribtion_logedin(category_name, item_name):
+def item_description_logedin(category_name, item_name):
     #to show the item discribtion whith eddit or delete property for the owner
     if 'username' not in login_session:
         return redirect('/login')
@@ -270,12 +270,12 @@ def item_discribtion_logedin(category_name, item_name):
                                                         ).first()[0]:
         description = session.query(Items.description).filter_by(name=item_name
                                                                  ).first()
-        return render_template('discribtionOtherUser.html',
+        return render_template('descriptionOtherUser.html',
                                description=description[0], item_name=item_name)
 
     description = session.query(Items.description).filter_by(name=item_name
                                                              ).first()
-    return render_template('discribtion_userin.html',
+    return render_template('description_userin.html',
                            description=description[0], item_name=item_name,
                            category=category_name)
 

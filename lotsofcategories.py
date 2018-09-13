@@ -11,12 +11,12 @@ category1 = Categories(name="Soccer")
 session.add(category1)
 session.commit()
 item1 = Items(name="Jersey",
-              description="any discription can be written here",
+              description="any description can be written here",
               categories=category1)
 session.add(item1)
 session.commit()
 item2 = Items(name="Soccer Cleats",
-              description="any discription can be written here",
+              description="any description can be written here",
               categories=category1)
 session.add(item2)
 session.commit()
@@ -24,7 +24,7 @@ session.commit()
 category2 = Categories(name="Basketball")
 session.add(category2)
 session.commit()
-item1 = Items(name="Bat", description="any discription can be written here",
+item1 = Items(name="Bat", description="any description can be written here",
               categories=category2)
 session.add(item1)
 session.commit()

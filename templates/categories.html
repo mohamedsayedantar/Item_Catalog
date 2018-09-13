@@ -22,7 +22,7 @@
       {% for m in categories %}
       {% if r.categories_id == m.id %}
       <div class="categoriesDiv2">
-      <a class="items_text" href="{{url_for('item_discribtion', category_name = m.name, item_name = r.name)}}">{{r.name}}<h4 class="gray_items">({{m.name}})</h4></a>
+      <a class="items_text" href="{{url_for('item_description', category_name = m.name, item_name = r.name)}}">{{r.name}}<h4 class="gray_items">({{m.name}})</h4></a>
       <br>
       <br>
     </div>
