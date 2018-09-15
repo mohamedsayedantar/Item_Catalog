@@ -16,6 +16,7 @@ from flask import make_response
 import requests
 from sqlalchemy.inspection import inspect
 import simplejson
+from functools import wraps
 
 app = Flask(__name__)
 
@@ -30,6 +31,17 @@ engine = create_engine('sqlite:///categories.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' in login_session:
+            return f(*args, **kwargs)
+        else:
+            flash("You are not allowed to access there")
+            return redirect('/login')
+    return decorated_function
 
 
 @app.route('/login')
@@ -192,10 +204,9 @@ def homepage():
 
 
 @app.route('/logedin/catalog')
+@login_required
 def homepage_userin():
     #the home page when the user is logged in
-    if 'username' not in login_session:
-        return redirect('/login')
 
     if getUserID(login_session['email']) is None:
         createUser(login_session)
@@ -221,10 +232,9 @@ def categoriesfunc(category_name):
 
 
 @app.route('/logedin/catalog/<string:category_name>')
+@login_required
 def categoriesfunc_logedin(category_name):
     #the same categoriesfunc but when the user is logged in
-    if 'username' not in login_session:
-        return redirect('/login')
     categories = session.query(Categories).all()
     id = session.query(Categories.id).filter_by(name=category_name).all()
     items = session.query(Items).filter_by(categories_id=id[0][0]).all()
@@ -252,10 +262,9 @@ def item_description2(category_name, item_name):
 
 
 @app.route('/logedin/catalog/<string:category_name>/<string:item_name>')
+@login_required
 def item_description_logedin(category_name, item_name):
     #to show the item discribtion whith eddit or delete property for the owner
-    if 'username' not in login_session:
-        return redirect('/login')
 
     if getUserID(login_session['email']) is None:
         createUser(login_session)
@@ -281,20 +290,18 @@ def item_description_logedin(category_name, item_name):
 
 
 @app.route('/additem')
+@login_required
 def addItem():
     #to add items, any user can use
-    if 'username' not in login_session:
-        return redirect('/login')
 
     categories = session.query(Categories).all()
     return render_template('addItem.html', categories=categories)
 
 
 @app.route('/handle_data1', methods=['POST'])
+@login_required
 def handle_data1():
     #handling the data from add temlpate
-    if 'username' not in login_session:
-        return redirect('/login')
 
     if getUserID(login_session['email']) is None:
         createUser(login_session)
@@ -324,10 +331,9 @@ def handle_data1():
 
 
 @app.route('/logedin/catalog/<string:category_name>/<string:item_name>/eddit')
+@login_required
 def EdditItem(category_name, item_name):
     #eddit item for the item owner only
-    if 'username' not in login_session:
-        return redirect('/login')
     userId = getUserID(login_session['email'])
     if userId != session.query(Items.user_id).filter_by(name=item_name
                                                         ).first()[0]:
@@ -337,10 +343,9 @@ def EdditItem(category_name, item_name):
 
 
 @app.route('/handle_data2', methods=['POST'])
+@login_required
 def handle_data2():
     #handling the data from eddit template
-    if 'username' not in login_session:
-        return redirect('/login')
     if request.form['Item1'] == '':
         return """sorry you did not enter any name to your item,
         please go back and choose one"""
@@ -362,10 +367,9 @@ def handle_data2():
 
 
 @app.route('/logedin/catalog/<string:category_name>/<string:item_name>/remove')
+@login_required
 def RemoveItem(category_name, item_name):
     #if the item owner wants to delete this item
-    if 'username' not in login_session:
-        return redirect('/login')
     userId = getUserID(login_session['email'])
     if userId != session.query(Items.user_id).filter_by(name=item_name
                                                         ).first()[0]:
@@ -375,10 +379,9 @@ def RemoveItem(category_name, item_name):
 
 
 @app.route('/handle_data3', methods=['POST'])
+@login_required
 def handle_data3():
     #handling the data from remove template
-    if 'username' not in login_session:
-        return redirect('/login')
     Name = request.form['item_name']
     session.query(Items).filter_by(name=Name).delete()
     session.commit()
@@ -416,6 +419,7 @@ def Json():
                    "category": cat
     }
     return simplejson.dumps(theCategory)
+
 
 @app.route('/<string:item_name>/json')
 def Json2(item_name):
