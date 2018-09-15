@@ -1,16 +1,16 @@
 # Item_Catalog
 a web application provide several categories each category contain its own items,
-visitors can see all items and each category items and also can see each item describtion,
-authenticated useres can add items or eddit or delete there own items only,
+visitors can see all items and each category items and also can see each item description,
+authenticated users can add items or edit or delete there own items only,
 this web application uses google 3rd party authentication to authenticate the users.
 
 
 ## run
 the database currently contain several categories with three items only as examples,
-for case you want modify this database and make your own, first download the project and follow this steps.
+for case you want modify this database and make your own, first download the project and follow these steps.
    1. delete `categories.db` file
    2. from your terminal run `database_create.py` file using `python database_create.py`
-   3. modify what ever you whant in the `lotsofcategories.py` file then run this file using `python lotsofcategories.py`
+   3. modify what ever you want in the `lotsofcategories.py` file then run this file using `python lotsofcategories.py`
    4. run the application using `python project.py` visit the website on `http://localhost:5000/`
    
 
