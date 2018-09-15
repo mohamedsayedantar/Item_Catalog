@@ -417,6 +417,49 @@ def Json():
     }
     return simplejson.dumps(theCategory)
 
+@app.route('/<string:item_name>/json')
+def Json2(item_name):
+
+    #the json end point file generator for any item
+    items = session.query(Items).all()
+    its = []
+    for item in items:
+        if item.name == item_name:
+            it = {
+                    "id": item.id,
+                    "name": item.name,
+                    "description": item.description,
+                    "categories_id": item.categories_id
+            }
+            its.append(it)
+
+    theItem = {
+                   item_name+" item": its
+    }
+    return simplejson.dumps(theItem)
+
+
+@app.route('/Bat.json')
+def Json3():
+
+    #the json end point file generator for any item
+    items = session.query(Items).all()
+    its = []
+    for item in items:
+        if item.name == "Bat":
+            it = {
+                    "id": item.id,
+                    "name": item.name,
+                    "description": item.description,
+                    "categories_id": item.categories_id
+            }
+            its.append(it)
+
+    theItem = {
+                   "Bat": its
+    }
+    return simplejson.dumps(theItem)
+
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
