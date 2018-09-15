@@ -26,7 +26,7 @@ CLIENT_ID = json.loads(
 
 APPLICATION_NAME = "Categories"
 
-#connect to the database
+# connect to the database
 engine = create_engine('sqlite:///categories.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
