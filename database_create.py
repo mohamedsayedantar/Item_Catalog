@@ -7,6 +7,7 @@ Base = declarative_base()
 
 
 class User(Base):
+    # Registered user information is stored in db
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
@@ -16,6 +17,7 @@ class User(Base):
 
 
 class Categories(Base):
+    # creating the categories db
     __tablename__ = 'categories'
 
     id = Column(Integer, primary_key=True)
@@ -31,6 +33,7 @@ class Categories(Base):
 
 
 class Items(Base):
+    # creating the items table contains the information of these items in db
     __tablename__ = 'items'
 
     id = Column(Integer, primary_key=True)
@@ -48,6 +51,8 @@ class Items(Base):
             'name': self.name,
             'description': self.description,
             'id': self.id,
+            'categories_id': self.categories_id,
+            'user_id': self.user_id,
         }
 
 engine = create_engine('sqlite:///categories.db')

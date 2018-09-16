@@ -421,48 +421,17 @@ def Json():
     return simplejson.dumps(theCategory)
 
 
-@app.route('/<string:item_name>/json')
-def Json2(item_name):
-
-    # the json end point file generator for any item
-    items = session.query(Items).all()
-    its = []
-    for item in items:
-        if item.name == item_name:
-            it = {
-                    "id": item.id,
-                    "name": item.name,
-                    "description": item.description,
-                    "categories_id": item.categories_id
-            }
-            its.append(it)
-
-    theItem = {
-                   item_name+" item": its
-    }
-    return simplejson.dumps(theItem)
-
-
-@app.route('/Bat.json')
-def Json3():
-
-    # the json end point file generator for any item
-    items = session.query(Items).all()
-    its = []
-    for item in items:
-        if item.name == "Bat":
-            it = {
-                    "id": item.id,
-                    "name": item.name,
-                    "description": item.description,
-                    "categories_id": item.categories_id
-            }
-            its.append(it)
-
-    theItem = {
-                   "Bat": its
-    }
-    return simplejson.dumps(theItem)
+@app.route('/<int:category_id>/<int:item_id>/json')
+def Json2(category_id, item_id):
+    # the json end point file generator for arbitrary item.
+    try:
+        items = session.query(Items).filter_by(id=item_id,
+        categories_id=category_id).one()
+        # returning the JSON format of the required item
+        return jsonify(item=[items.serialize])
+    except:
+        return """sorry, this item is not existed in this category,
+                  or not existed at all!"""
 
 
 if __name__ == '__main__':
