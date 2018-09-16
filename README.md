@@ -22,3 +22,5 @@ for case you want modify this database and make your own, first download the pro
   4. use your terminal and go to the directory called vagrant using `cd`
   5. Start the virtual machine using `vagrant up` command
   6. you can run `vagrant ssh` to log in to your newly installed Linux VM
+  
+  Note: in case error importing simplejson using the VM run in your terminal `sudo apt-get install python-simplejson`
