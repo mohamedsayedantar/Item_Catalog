@@ -27,7 +27,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "Categories"
 
 # connect to the database
-engine = create_engine('postgresql://catalog:password@localhost/catalog')
+engine = create_engine('sqlite:///categories.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -438,3 +438,4 @@ if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
+
