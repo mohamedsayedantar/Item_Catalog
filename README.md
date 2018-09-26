@@ -1,7 +1,7 @@
 # Item_Catalog
 a web application provide several categories each category contain its own items,
 visitors can see all items and each category items and also can see each item description,
-authenticated users can add items or edit or delete there own items only,
+authenticated users can add items or edit or delete their own items only,
 this web application uses google 3rd party authentication to authenticate the users.
 
 
